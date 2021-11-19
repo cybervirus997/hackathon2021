@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
     profile_pic: { type: String ,default:"https://i.imgur.com/nRhKKpR.png"},
     cover_pic: { type: String, default:"https://i.imgur.com/lnd2NHQ.png"},
     location: { type: String},
-    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'posts'}],
+    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'posts' }],
+    userRoles: {type: String, required: true }
 }, {
     versionKey: false,
     timestampKey: true,

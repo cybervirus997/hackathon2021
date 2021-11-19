@@ -6,7 +6,8 @@ const postsSchema = new mongoose.Schema({
     startPoint: { type: String, required: true },
     endPoint: { type: String, required: true },
     price : { type: String, required: true},
-    image: { type: String , default: ''},
+    image: { type: String, default: '' },
+    truckId: {type: mongoose.Schema.Types.ObjectId, ref: 'truck',required: true},
     comment: [{ type: mongoose.Schema.Types.ObjectId, ref: 'comment' }],
 }, {
     versionKey: false,

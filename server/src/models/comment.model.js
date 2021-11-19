@@ -9,8 +9,6 @@ const commentSchema = new mongoose.Schema({
     //  if doubt delte these
 
     userName: { type: String, required: true },
-    userImage: { type: String },
-    userUserName: { type: String, required: true }
     
 }, {
     versionKey: false,

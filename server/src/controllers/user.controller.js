@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const User = require('../modals/user.modal')
+const User = require('../models/user.model')
 
 router.get("", async (req, res) => {
     try {
@@ -37,6 +37,8 @@ router.post("", async (req, res) => {
             profile_pic: req.body.profile_pic,
             cover_pic: req.body.cover_pic,
             location: req.body.location,
+            posts: req.body.posts,
+            userRoles: req.body.userRoles
         })
         return res.status(201).send(user);
     }
