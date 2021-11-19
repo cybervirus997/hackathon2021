@@ -1,0 +1,87 @@
+#slide {
+	width: 100%;
+	height: 100vh;
+	background-position: center left;
+	background-size: cover;
+	background-repeat: no-repeat;
+	backface-visibility: hidden;
+	/* animation: slideBg 20s linear infinite 0s; */
+	background-color: transparent;
+	/* animation-duration: 10s; */
+	/* animation-timing-function: ease-in-out; */
+	/* background-image: url("https://64.media.tumblr.com/6bd892d3f764f3915a015a5aeb977cac/87e536a750c8c5a2-62/s2048x3072/0145ae48867240f9f2e3ea0b81699e005d908231.jpg"); */
+}
+/* @keyframes slideBg {
+	0% {
+		background-image: url("https://64.media.tumblr.com/6bd892d3f764f3915a015a5aeb977cac/87e536a750c8c5a2-62/s2048x3072/0145ae48867240f9f2e3ea0b81699e005d908231.jpg");
+	}
+
+	25% {
+		background-image: url("https://64.media.tumblr.com/6e9686981f8b4ef28e8d6529a830411b/e1068b170f41259c-8e/s400x600/a686441257b16a03c6176d894b4b0bae1f77f302.gifv");
+	}
+
+	50% {
+		background-image: url("https://64.media.tumblr.com/45fffe905138fb3f35f75f2000654f70/72061090efc0b740-f4/s500x750/6a2b6177c4ead0a0a237711e198a00b13adbc100.jpg");
+	}
+
+	75% {
+		background-image: url("https://64.media.tumblr.com/e322619a70e5e115871f3393729700be/936036fb8250d51a-e4/s540x810/1037a78af2f4fa97d26dec40ed7d363d88aa2083.png");
+	}
+
+	100% {
+		background-image: url("https://64.media.tumblr.com/c0ddb792e763b8611a7215b2c570f19a/458f60ab57ae1d3b-aa/s2048x3072/970b040a01324030061243fc8ce025af31450366.jpg");
+	}
+} */
+.upper {
+	width: 300px;
+	background: inherit;
+}
+.txt {
+	color: white;
+	font-weight: 700;
+	font-size: 20px;
+	text-align: center;
+}
+.comp {
+	/* overflow-x: hidden; */
+	width: 100vw;
+	height: 100vh;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+.comp_part {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+}
+.foot {
+	align-items: baseline;
+	bottom: 12px;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	width: 100%;
+	margin-top: -50px;
+	/* background-color: brown; */
+}
+.foot_left > ul {
+	font-size: 16px;
+	color: white;
+	font-weight: 400;
+	line-height: 1.5;
+}
+.foot_left > ul > li {
+	display: inline-block;
+	list-style-type: none;
+	margin-left: 8px;
+}
+.foot_right {
+	font-size: 16px;
+	color: white;
+	font-weight: 400;
+	line-height: 1.5;
+	margin-right: 30px;
+}
