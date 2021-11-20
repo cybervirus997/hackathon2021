@@ -1,0 +1,100 @@
+*{
+  margin:0px;
+  padding:0px;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  background-color: #161B22;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+  animation: images 20s linear infinite 0s;
+  animation-timing-function: ease-in-out;
+  /* background-image: url("https://64.media.tumblr.com/6bd892d3f764f3915a015a5aeb977cac/87e536a750c8c5a2-62/s2048x3072/0145ae48867240f9f2e3ea0b81699e005d908231.jpg"); */
+  font-family: "Favorit, Helvetica Neue, HelveticaNeue, Helvetica, Arial,sans-serif";
+}
+/* @keyframes images {
+  0% {
+    background-image: url("https://64.media.tumblr.com/00f36bb3deb0bd8f388606ac122ebc8d/e6555daf41272f48-78/s2048x3072/4eebcd0e2ea6a30ea259d83a9b880b824adc2551.png");
+  }
+
+  25% {
+    background-image: url("https://64.media.tumblr.com/6bd892d3f764f3915a015a5aeb977cac/87e536a750c8c5a2-62/s2048x3072/0145ae48867240f9f2e3ea0b81699e005d908231.jpg");
+  }
+
+  50% {
+    background-image: url("https://64.media.tumblr.com/4627c432875ec563290ac65c6130852a/d9898eb9f400be4b-3e/s2048x3072/26966677e6cf7cacd4e8e41f2f1df958f479462e.jpg");
+  }
+  75% {
+    background-image: url("https://64.media.tumblr.com/44a6f98d0b14f7a28280bfbc7548137f/b03247dac2761ace-db/s2048x3072/105b1ef9727eb70c4244b6fe2428629d7710c9e5.png");
+  }
+  100% {
+    background-image: url("https://64.media.tumblr.com/3d9703be7bcc2d5737c0c8a429ac3d4f/ac607d753617fc17-e6/s2048x3072/b8313f148854a0371af353f8a8f5b116a4752e1b.png");
+  }
+} */
+
+.container,
+.auth_container {
+  justify-content: center;
+}
+
+.container,
+.radio,
+.auth_container {
+  display: flex;
+}
+
+.radio,
+.auth_container {
+  flex-direction: column;
+}
+
+.radio {
+  width: 20px;
+  height: 30%;
+  justify-content: space-evenly;
+  top: 35%;
+  left: 5%;
+  position: fixed;
+}
+
+.radio_button:hover {
+  border: 3px solid gray;
+}
+
+.radio_button {
+  width: 10px;
+  border: 3px solid #fff;
+  height: 10px;
+  opacity: 0.4;
+}
+
+.active,
+.radio_button {
+  border-radius: 50%;
+}
+
+.active {
+  background-color: #fff;
+  background-size: fill;
+  height: 15px;
+  width: 15px;
+}
+
+.auth_container {
+  margin-top: 6%;
+  align-items: center;
+}
+
+.links {
+  margin-top: 2%;
+  bottom: 0;
+  display: flex;
+  width: 98.8vw;
+}
+
+.main div:last-child {
+  bottom: 0;
+}
