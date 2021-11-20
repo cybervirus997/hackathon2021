@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "./LandingPage.module.css";
 import { Navbar } from "../SubComponents/Navbar/Navbar";
 import mob from "./mob.png";
@@ -24,7 +24,6 @@ const CorDiv = styled.div`
   height: 420px;
   top: 35px;
   left: 20px;
-  // border: 1px solid red;
 `;
 const ImgDiv = styled.div`
   position: absolute;
@@ -54,21 +53,18 @@ export const LandingPage = () => {
     // return () => clearInterval(interval);
   }, []);
 
-  // setInterval(function () {
-    
-  //   if(image === arr.length-1){
-  //     setImage(0)
-  //   }
-  //   else{
-  //     setImage(image + 1)
-  //   }
-  // },10000);
+  const [draw, setDraw] = useState(true)
+  
+  const checker1 = (flag) => {
+    setDraw(flag);
+  }
 
   return (
     
     <div>
       <div className={styles.container} id="a">
-        <Navbar />
+
+        <Navbar page={"login"} checker1={checker1} />
         <FlexBox>
           <DivStyle>
             <ImgDiv>
@@ -77,8 +73,7 @@ export const LandingPage = () => {
             </ImgDiv>
           </DivStyle>
           <DivStyleOne>
-            <LoginPage />
-            <SignupPage/>
+            { draw ? <LoginPage/> : <SignupPage/>}
           </DivStyleOne>
         </FlexBox>
       </div>

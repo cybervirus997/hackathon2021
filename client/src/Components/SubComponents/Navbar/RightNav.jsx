@@ -4,13 +4,27 @@ import styles from "./Navbar.module.css";
 import { button_style } from "./Button_style";
 import { Button } from "@mui/material";
 
-export const RightNav = ({ page }) => {
+export const RightNav = ({ page,checker2 }) => {
   
-  const [toggle, setToggle]= React.useState(true)
+  const [toggle, setToggle] = React.useState(true);
+
+    const checker3 = (flag) => {
+      checker2(flag);
+  }
 
   const handleClick = (id) => {
-    setToggle(!toggle)
+    if (id === 1) {
+      setToggle(true);
+      checker2(true)
+    }
+    else
+    {
+      setToggle(false);
+      checker2(false);
+    }
   };
+
+
 
   return(
     <div className={styles.right_nav_container}>
