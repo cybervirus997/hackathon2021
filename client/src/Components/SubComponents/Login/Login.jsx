@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styles from "./sign.module.css";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
@@ -6,7 +6,13 @@ import Button from "@mui/material/Button";
 // import { FaApple } from "react-icons/fa";
 // import { FaRegCompass } from "react-icons/fa";
 import axios from "axios";
+
+
 import { useHistory } from "react-router-dom";
+
+import { useSelector, useDispatch } from "react-redux";
+import { setLoggedInUser, storeToken } from "../../../Redux/action";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -77,39 +83,36 @@ export default function SignUp() {
   const [error, setError] = useState(false);
   const [errorData, setErrorData] = useState("");
   const [input, setInput] = useState({
-    email: "",
-    password: "",
-    bloName: "",
+      email: "",
+      password: "",
   });
+
+   const loggedIn = useSelector(state => state.loggedIn);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (loggedIn)
+    {
+      history.push("");                     // to be filled important
+    }
+  },[])
 
 
   const handlePayload = (e) => {
         let { name, value } = e.target;
-        setInput({ ...input, [name]: value });
-    }
+        setInput({ ...input, [name]: value});
+  }
+  
 
-    const handleLogin = () => {
-        console.log(input);
-        setInput({
-           email: "",
-           password: "",
-           blogName: "",
-        });
-      axios.post("http://localhost:2345/login", {
-           input
-      }).then((res) => {
-            setError(false);
-        localStorage.setItem(
-        "tumblrUser",
-        JSON.stringify({ auth: true, token: res.data.token })
-        );
-         history.push("/selectTags");
-      }
-      ).catch((err) => {
-          setError(true);
-          setErrorData("Invalid Credentials")
-        });
-    }
+  const handleLogin = () => {
+    axios.post("http://localhost:3009/login", input)
+      .then((data) => {
+        dispatch(storeToken(data.data));
+        dispatch(setLoggedInUser(data.data.user));
+        console.log("pushing to home")
+      })
+  }
+
 
   return (
     <div className={styles.main_sign}>
@@ -137,7 +140,7 @@ export default function SignUp() {
             />
           </div>  
         </form>
-        <Button className={classes.buton} style={{background: "rgb(0,207,53)",}} variant="contained" onClick={()=>handleLogin()}>
+        <Button className={classes.buton} style={{ background: "rgb(0,207,53)", }} variant="contained" onClick={handleLogin} >   {/* onClick={ }*/}
           Login 
         </Button>
 

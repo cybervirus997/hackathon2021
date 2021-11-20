@@ -3,7 +3,12 @@ import styles from "./Navbar.module.css";
 import { LeftNav } from "./LeftNav";
 import { RightNav } from "./RightNav";
 
-export const Navbar = ({ page, left_nav, right_nav }) => {
+export const Navbar = ({ page, left_nav, right_nav, checker1 }) => {
+  
+  const checker2 = (flag1) => {
+    checker1(flag1)
+  }
+
   return (
     <div
       className={
@@ -22,7 +27,7 @@ export const Navbar = ({ page, left_nav, right_nav }) => {
       </div>
       <div className={styles.right_nav}>
         {right_nav}
-        <RightNav page={page} />
+        <RightNav page={page} checker2={checker2} />
       </div>
     </div>
   );
