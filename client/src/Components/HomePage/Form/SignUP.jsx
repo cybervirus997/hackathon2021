@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./sign.module.css";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
+import truck1 from "../../HomePage/truck1.png";
 // import { FcGoogle } from "react-icons/fc";
 // import { FaApple } from "react-icons/fa";
 // import { FaRegCompass } from "react-icons/fa";
@@ -175,10 +176,13 @@ export default function SignUp() {
       {overlay ? <div style={{position: 'absolute',width: '100vw',display:"flex",flexFlow:"row",height: '91vh',backgroundColor:"#688983",left:"0",bottom:"0"}}>
         
         <div style={{width:"50%",height:"100%"}}>
-          <div style={{width:"85%",height:"80%",margin:"auto",position:"relative",marginTop:"30px",backgroundColor:"#fff"}}>
+          <div style={{width:"85%",height:"80%",margin:"auto",position:"relative",marginTop:"30px",backgroundColor:"#688983", textAlign:"left" , padding: "10px", fontStyle:"roboto"}}>
             
-              <p>From: {from}  <span>.......</span> to: {to}</p>
-              <p>Types of goods : {goods}</p>
+            <div style={{borderLeft: "5px solid #333333", paddingLeft: "10px", color: "#fff"}}>
+              <p style={{fontSize:"18px"}}>From: <span style={{fontSize:"18px", fontWeight:"600", marginLeft: "78px", color:"#333333"}}>{from}</span><span style={{fontSize:"18px", fontWeight:"600", color:"#333333"}}>...</span><br/> to: <span style={{fontSize:"18px", fontWeight:"600", marginLeft: "99px", color:"#333333"}}>{to}</span><span style={{fontSize:"18px", fontWeight:"600", color:"#333333"}}>...</span></p>
+              <p style={{marginBottom:"10px", fontSize: "18px"}}>Types of goods : <span style={{fontSize:"18px", fontWeight:"600", marginLeft: "10px", color:"#333333"}}>{goods}</span></p>
+
+              </div>
 
               {/* carasole starts */}
             <div style={{width:"80%",position:"relative",height:"40%",border:"1px solid red",margin:"auto"}}>
@@ -188,15 +192,16 @@ export default function SignUp() {
               <div style={{ width: "100%", height: "100%",display: "flex",flexFlow:"row"}}>
 
                 <div style={{ height: "80%",marginLeft:"2%",marginTop:"4%",width:"40%",border:"1px solid red"}}>
+                  <div><img src={truck1} alt="tru" width="90%" height="90%"/></div>
                   {/* truck image */}
                 </div>
 
-                <div style={{ height: "80%",marginLeft:"2%",marginTop:"4%",width:"53%",border:"1px solid red"}}>
+                <div style={{ height: "80%",marginLeft:"2%",marginTop:"4%",width:"53%",border:"1px solid red", backgroundColor:"#67806B",color:"#fff" }}>
                   
-                  <p>Truck name : { }</p>
-                  <p>Truck Name Plate: { }</p>
-                  <p> Capacity : { }</p>
-                  <button>Select this truck</button>
+                  <h4>Truck name : { }</h4>
+                  <h4>Truck Name Plate: { }</h4>
+                  <h4 style={{marginBottom:"20px"}}> Capacity : { }</h4>
+                  <Button style={{backgroundColor:"#396EB0", color:"#fff"}}>Select this truck</Button>
 
                 </div>
 
@@ -207,7 +212,7 @@ export default function SignUp() {
             </div>
             {/* carasole ennds */}
 
-            <p>price: {}</p>
+            <h2 style={{marginTop:"20px", color: "#fff"}}>Total Fare: {}</h2>
 
           </div>
         </div>
@@ -217,9 +222,9 @@ export default function SignUp() {
           </div>
         </div>
 
-        <button style={{ position: "absolute",border:"1px solid transparent",outline: "none",backgroundColor:"rgb(0,207,53)", width: "250px", height: "60px", bottom: "19%", left: "15%" }}>
+        <Button style={{ position: "absolute",backgroundColor:"rgb(0,207,53)", width: "250px", height: "60px", bottom: "10%", left: "30%", color:"#fff", fontWeight:"600" }}>
           <span style={{fontSize: "23px"}} >Payment</span>
-        </button>
+        </Button>
 
       </div> : ""}
 
