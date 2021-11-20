@@ -1,10 +1,10 @@
 import React from 'react'
 import axios from "axios";
 import styled from "styled-components";
-import ButtonAppBar from './ButtonAppBar';
 import { createGlobalStyle } from 'styled-components';
-import truck from './truck.png';
-import SignupPage from './Form/SignUpPage';
+// import truck from './truck.png';
+// import SignupPage from './Form/SignUpPage';
+import ButtonAppBar from '../HomePage/ButtonAppBar';
 // import SignupPage from '../SubComponents/SignUp/SignUpPage';
 
 const GlobalStyle = createGlobalStyle`
@@ -40,6 +40,7 @@ const CorDiv = styled.div`
   height: 420px;
   top: 35px;
   left: 20px;
+  // border: 1px solid red;
 `;
 const ImgDiv = styled.div`
   position: absolute;
@@ -49,7 +50,8 @@ const ImgDiv = styled.div`
 const DivStyleOne = styled.div`
 
   width: 50%;
-  margin: auto;
+//   height: 100%;
+  margin: auto
   background-color: #161B22;
 
 `;
@@ -61,7 +63,7 @@ left: 115px;
   height: 50%;
 
 `;
-function Home() {
+function DataPage() {
     return (
         <>
         <GlobalStyle/>
@@ -69,12 +71,12 @@ function Home() {
             <ButtonAppBar/>
             <FlexBox>
                 <DivStyle>
-                    <div>
+                    {/* <div>
                         <Image src={truck} alt="truck img" />
-                    </div>
+                    </div> */}
                 </DivStyle>
                 <DivStyleOne>
-                    <SignupPage/>
+                    {/* <SignupPage/> */}
                 </DivStyleOne>
             </FlexBox>
         </Container>
@@ -82,4 +84,4 @@ function Home() {
     )
 }
 
-export default Home
+export default DataPage

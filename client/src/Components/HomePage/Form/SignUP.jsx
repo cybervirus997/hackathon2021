@@ -72,6 +72,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function SignUp() {
+
+  const [overlay,setOverlay] = useState(false);
   const history = useHistory();
   const classes = useStyles();
   const [error, setError] = useState(false);
@@ -83,18 +85,14 @@ export default function SignUp() {
     KM: ""
   });
 
-  // const handlePayload = (e) => {
-  //   let { name, value } = e.target;
-  //   setInput({ ...input, [name]: value });
-  // };
 
-  // const handleRegister = () => {
-  //   console.log(input);
-  //   setInput({
-  //     pickupCity: "",
-  //   dropCity: "",
-  //   Truck: "",
-  //   });
+  const [from, setFrom] = useState("")
+  const [to, setTo] = useState("")
+  const [goods,setGoods]=useState("")
+
+  const handleSinglePerson = () => {
+    setOverlay(!overlay);
+  }
 
   return (
     <div className={styles.main_sign}>
@@ -111,16 +109,9 @@ export default function SignUp() {
         <form>
         
           <div className={classes.inputBoxes}>
-          {/* <input
-              name="pickCity"
-              value={input.pcity}
-              className={classes.email}
-              type="text"
-              placeholder="Enter Pickup City"
-            /> */}
-            <select style={{margin: "10px 0 10px 0"}}
-            className={classes.email}
-            >
+
+          {/* Input area for District/place (From)  starts*/}
+            <select style={{ margin: "10px 0 10px 0" }} className={classes.email} onChange={(e)=>setFrom(e.target.value)} >
               <option>Select Pickup Location</option>
               <option>Pune, Maharashtra, India</option>
               <option>Mumbai, Maharashtra, India</option>
@@ -130,20 +121,11 @@ export default function SignUp() {
               <option>Puri, Odisa, India</option>
               <option>Banglore, Karnataka, India</option>
               <option>Delhi, India</option>
-
-
-
             </select>
-            {/* <input
-              className={classes.email}
-              value={input.dCity}
-              type="text"
-              name="dropCity"
-              placeholder="Enter Drop City"
-            /> */}
-            <select style={{margin: "10px 0 10px 0"}}
-            className={classes.email}
-            >
+          {/* Input area for District/place (From)  ends*/}
+            
+          {/*Input area for District/place (To)  starts  */}
+          <select style={{margin: "10px 0 10px 0"}} className={classes.email} onChange={(e)=>setTo(e.target.value)} >
               <option>Select Drop Location</option>
               <option>Pune, Maharashtra, India</option>
               <option>Mumbai, Maharashtra, India</option>
@@ -153,69 +135,96 @@ export default function SignUp() {
               <option>Puri, Odisa, India</option>
               <option>Banglore, Karnataka, India</option>
               <option>Delhi, India</option>
-
-
-
             </select>
-            {/* <input
-              className={classes.email}
-              value={input.dKm}
-              type="text"
-              name="kilometer"
-              placeholder="Enter Distance in KM"
-            /> */}
-            <select style={{margin: "10px 0 10px 0"}}
-            className={classes.email}
-            >
-              <option>Select Truck Type</option>
-              <option>Truck1</option>
-              <option>Truck2</option>
+          {/*Input area for District/place (To)  ends*/}
+
+          {/*Input area for Goods Type starts */}
+          <select style={{margin: "10px 0 10px 0"}} className={classes.email} onChange={(e)=>setGoods(e.target.value)}>
+              <option>Select Goods Type</option>
+              <option>Industrial Machine</option>
+              <option>Fresh fruits and Veggies</option>
+              <option>Books/Stationery/Toys/Gifts</option>
+              <option>Parcel and Courier Service</option>
             </select>
+          {/*Input area for Goods Type ends */}
+            
           </div>
         </form>
-        <Button
-          className={classes.buton}
-          variant="contained"
-        >
-          Check Fare
+
+        <Button className={classes.buton} variant="contained"  onClick={handleSinglePerson}>
+          Direct Booking
         </Button>
 
         <div className={styles.divide}>
           <div className={styles.lin}></div>
-
           <div className={styles.lin}></div>
         </div>
 
-        {/* <Button
-                    style={{backgroundColor:"white", color:"black", fontWeight: "550", marginBottom : "10px"}}
-                  className={classes.buton3}
-                  variant="contained"
-          startIcon={<FcGoogle />}
-          onClick={()=>handleGoogleAuth()}
-        >
-          Continue with Google
-        </Button> */}
-
-        {/* <Button
-                  style={{backgroundColor:"white", color:"black", fontWeight: "550"}}
-          className={classes.buton3}
-          variant="contained"
-          startIcon={<FaApple />}
-        >
-          Continue with Apple
-        </Button> */}
-
         <div style={{ textAlign: "center"}}>
           <div className={styles.sig_botm}>
-            <Button style={{backgroundColor:"green"}}
-          className={classes.buton}
-          variant="contained"
-        >
-          Shareकरो
-        </Button>
+            <Button style={{backgroundColor:"green"}} className={classes.buton} variant="contained">
+                Shareकरो
+            </Button>
           </div>
         </div>
       </div>
+
+
+    {/* overlay starts */}
+
+      {overlay ? <div style={{position: 'absolute',width: '100vw',display:"flex",flexFlow:"row",height: '91vh',backgroundColor:"#688983",left:"0",bottom:"0"}}>
+        
+        <div style={{width:"50%",height:"100%"}}>
+          <div style={{width:"85%",height:"80%",margin:"auto",position:"relative",marginTop:"30px",backgroundColor:"#fff"}}>
+            
+              <p>From: {from}  <span>.......</span> to: {to}</p>
+              <p>Types of goods : {goods}</p>
+
+              {/* carasole starts */}
+            <div style={{width:"80%",position:"relative",height:"40%",border:"1px solid red",margin:"auto"}}>
+
+              <div style={{ position: "absolute", left: "0", top: "50%" ,border:"1px solid red"}}>left</div>
+              
+              <div style={{ width: "100%", height: "100%",display: "flex",flexFlow:"row"}}>
+
+                <div style={{ height: "80%",marginLeft:"2%",marginTop:"4%",width:"40%",border:"1px solid red"}}>
+                  {/* truck image */}
+                </div>
+
+                <div style={{ height: "80%",marginLeft:"2%",marginTop:"4%",width:"53%",border:"1px solid red"}}>
+                  
+                  <p>Truck name : { }</p>
+                  <p>Truck Name Plate: { }</p>
+                  <p> Capacity : { }</p>
+                  <button>Select this truck</button>
+
+                </div>
+
+              </div>
+              
+              <div style={{position:"absolute",right:"0",top:"50%",border:"1px solid red"}}>right</div>
+
+            </div>
+            {/* carasole ennds */}
+
+            <p>price: {}</p>
+
+          </div>
+        </div>
+        <div style={{width:"50%",height:"100%",backgroundColor:"#161B22"}}>
+          <div style={{width:"80%",height:"80%",border:"2px solid red",margin:"auto",marginTop:"30px"}}>
+            {/* map lgega yhn */}
+          </div>
+        </div>
+
+        <button style={{ position: "absolute",border:"1px solid transparent",outline: "none",backgroundColor:"rgb(0,207,53)", width: "250px", height: "60px", bottom: "19%", left: "15%" }}>
+          <span style={{fontSize: "23px"}} >Payment</span>
+        </button>
+
+      </div> : ""}
+
+    {/* overlay ends */}
+
     </div>
   );
 }
