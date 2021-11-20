@@ -65,9 +65,10 @@ export const LandingPage = () => {
   // },10000);
 
   return (
+    
     <div>
       <div className={styles.container} id="a">
-        <Navbar page={"login"} />
+        <Navbar />
         <FlexBox>
           <DivStyle>
             <ImgDiv>
@@ -76,7 +77,7 @@ export const LandingPage = () => {
             </ImgDiv>
           </DivStyle>
           <DivStyleOne>
-            {/* <LoginPage/> */}
+            <LoginPage />
             <SignupPage/>
           </DivStyleOne>
         </FlexBox>
