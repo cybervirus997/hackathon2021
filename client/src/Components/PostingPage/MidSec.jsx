@@ -76,6 +76,7 @@ function MidSec(){
         <Toolbar>
           <IconButton color="inherit" aria-label="open drawer">
             <MenuIcon />
+            <button onClick={console.log("hiii")}>Click</button>
           </IconButton>
           <StyledFab  aria-label="add" onClick={handleOpen}>
             <AddIcon />

@@ -10,7 +10,7 @@ import axios from "axios";
 
 import { useHistory } from "react-router-dom";
 
-import { useSelector, useDispatch } from "react-redux";
+//import { useSelector, useDispatch } from "react-redux";
 import { setLoggedInUser, storeToken } from "../../Redux/action";
 
 const useStyles = makeStyles((theme) => ({
@@ -80,6 +80,7 @@ export default function TextField({checkerClose}) {
   const history = useHistory();
   const [error, setError] = useState(false);
   const [errorData, setErrorData] = useState("");
+
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -88,15 +89,15 @@ export default function TextField({checkerClose}) {
     location: "",
     userRoles: "",
   });
-  const loggedIn = useSelector(state => state.loggedIn);
-  const dispatch = useDispatch();
+  // const loggedIn = useSelector(state => state.loggedIn);
+  // const dispatch = useDispatch();
   
 
-  useEffect(() => {
-    if (loggedIn) {
-      history.push("")                                // to be filled important
-    }
-  },[])
+  // useEffect(() => {
+  //   if (loggedIn) {
+  //     history.push("")                                // to be filled important
+  //   }
+  // },[])
 
   const handlePayload = (e) => {
     let { name, value } = e.target;
@@ -105,17 +106,17 @@ export default function TextField({checkerClose}) {
 
   const handleRegister = () => {
     checkerClose();
-    console.log("hii")
-    axios.post("http://localhost:3009/signup", input)
-      .then((data) => {
-        dispatch(storeToken(data.data));
-        dispatch(setLoggedInUser(data.data.user));
-        console.log("pushing to home")
+    console.log(input);
+    // axios.post("http://localhost:3009/signup", input)
+    //   .then((data) => {
+    //     // dispatch(storeToken(data.data));
+    //     // dispatch(setLoggedInUser(data.data.user));
+    //     console.log("pushing to home")
         
-      })
-      .catch((err) => {
-        alert(err)
-    })
+    //   })
+    //   .catch((err) => {
+    //     alert(err)
+    // })
   }
 
   return (
@@ -136,7 +137,7 @@ export default function TextField({checkerClose}) {
           <div className={classes.inputBoxes}>
           <input
               name="title"
-              value={input.name}
+              // value={input.name}
               className={classes.email}
               type="text"
               placeholder="Title"
@@ -144,14 +145,14 @@ export default function TextField({checkerClose}) {
             />
             <input
               className={classes.email}
-              value={input.email}
+              //value={input.email}
               type="text"
               name="startPoint"
               placeholder="Start-Point"
               onChange={handlePayload}
             />
             <input
-              value={input.password}
+              //value={input.password}
               className={classes.email}
               name="endPoint"
               type="text"
@@ -160,7 +161,7 @@ export default function TextField({checkerClose}) {
             />
             <input
               name="occupied"
-              value={input.location}
+              //value={input.location}
               className={classes.email}
               type="text"
               placeholder="Occupied"
