@@ -40,7 +40,6 @@ const CorDiv = styled.div`
   height: 420px;
   top: 35px;
   left: 20px;
-  // border: 1px solid red;
 `;
 const ImgDiv = styled.div`
   position: absolute;
@@ -50,8 +49,7 @@ const ImgDiv = styled.div`
 const DivStyleOne = styled.div`
 
   width: 50%;
-//   height: 100%;
-  margin: auto
+  margin: auto;
   background-color: #161B22;
 
 `;

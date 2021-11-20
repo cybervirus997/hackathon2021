@@ -87,24 +87,16 @@ export default function SignUp() {
       password: "",
   });
 
-   const loggedIn = useSelector(state => state.loggedIn);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (loggedIn)
-    {
-      history.push("");                     // to be filled important
-    }
-  },[])
-
-
-  const handlePayload = (e) => {
+    const handlePayload = (e) => {
         let { name, value } = e.target;
         setInput({ ...input, [name]: value});
   }
   
 
-  const handleLogin = () => {
+   const loggedIn = useSelector(state => state.loggedIn);
+  const dispatch = useDispatch();
+
+   const handleLogin = () => {
     axios.post("http://localhost:3009/login", input)
       .then((data) => {
         dispatch(storeToken(data.data));
@@ -112,6 +104,13 @@ export default function SignUp() {
         console.log("pushing to home")
       })
   }
+
+  useEffect(() => {
+    if (loggedIn)
+    {
+      history.push("/home");                     // to be filled important
+    }
+  },[handleLogin])
 
 
   return (
