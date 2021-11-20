@@ -59,7 +59,7 @@
 }
 .foot {
 	align-items: baseline;
-	bottom: 12px;
+	bottom: -19px;
 	display: flex;
 	justify-content: space-between;
 	position: relative;
