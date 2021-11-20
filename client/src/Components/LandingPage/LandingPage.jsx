@@ -6,7 +6,7 @@ import styled from "styled-components";
 import img1 from "./img1.jpg";
 import img2 from "./img2.png";
 import img3 from "./img3.jpg";
-import LoginPage from "../SubComponents/Login/LoginPage";
+import LoginPage from '../SubComponents/Login/LoginPage';
 import SignupPage from "../SubComponents/SignUp/SignUpPage";
 const FlexBox = styled.div`
   width: 100%;
