@@ -38,20 +38,14 @@ const DivStyleOne = styled.div`
 
 var arr = [img1, img2, img3];
 export const LandingPage = () => {
-  const [image, setImage] = React.useState(0);
+  const [current, setCurrent] = React.useState(0);
 
+React.useEffect(() => {
+  const next = (current + 1) % arr.length;
+  const id = setTimeout(() => setCurrent(next), 2000);
+  return () => clearTimeout(id);
+}, [current]);
 
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      if(image === arr.length-1){
-        setImage(0)
-      }
-      else{
-        setImage(image + 1)
-      }
-    }, 2000);
-    // return () => clearInterval(interval);
-  }, []);
 
   const [draw, setDraw] = useState(true)
   
@@ -68,7 +62,7 @@ export const LandingPage = () => {
         <FlexBox>
           <DivStyle>
             <ImgDiv>
-              <CorDiv><img src={arr[image]} alt="img" width="100%" /></CorDiv>
+              <CorDiv><img src={arr[current]} alt="img" width="100%" /></CorDiv>
               <img src={mob} alt="mob" />
             </ImgDiv>
           </DivStyle>
