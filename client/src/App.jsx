@@ -1,4 +1,5 @@
-import Home from "./Components/HomePage/Home";
+//import Home from "./Components/HomePage/Home";
+//import PostPage from "./Components/PostingPage/Post";
 // import { LandingPage } from "./Components/LandingPage/LandingPage";
 
 
@@ -7,7 +8,8 @@ function App() {
 
     <div style={{margin: "0px"}}>
        {/* <LandingPage/> */}
-       <Home/>
+       {/* <Home/> */}
+       {/* <PostPage /> */}
     </div>
   );
 }
