@@ -54,10 +54,8 @@ const DivStyle = styled.div`
 const DivStyleOne = styled.div`
 
   width: 50%;
-//   height: 100%;
-  margin: auto
+  margin: auto;
   background-color: #161B22;
-//   podition: relative;
 
 `;
 
