@@ -1,15 +1,9 @@
-// import Home from "./Components/HomePage/Home";
-import { LandingPage } from "./Components/LandingPage/LandingPage";
-
-// import DataPage from "./Components/DataPage/DataPage";
-
+import {Routes} from "./Components/Routes/Routes"
 
 function App() {
   return (
     <div style={{margin: "0px"}}>
-       <LandingPage/>
-       {/* <Home/> */}
-       {/* <DataPage/> */}
+      <Routes />
     </div>
   );
 }

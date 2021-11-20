@@ -91,19 +91,12 @@ export default function SignUp() {
   const loggedIn = useSelector(state => state.loggedIn);
   const dispatch = useDispatch();
   
-
-  useEffect(() => {
-    if (loggedIn) {
-      history.push("")                                // to be filled important
-    }
-  },[])
-
   const handlePayload = (e) => {
     let { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };
 
-  const handleRegister = () => {
+   const handleRegister = () => {
     axios.post("http://localhost:3009/signup", input)
       .then((data) => {
         dispatch(storeToken(data.data));
@@ -111,9 +104,21 @@ export default function SignUp() {
         console.log("pushing to home")
       })
       .catch((err) => {
-        alert(err)
+        alert("Signup not successful")
     })
   }
+
+
+  useEffect(() => {
+    if (loggedIn) {
+      alert("sucessfully done")
+      history.push("/home")                                // to be filled important
+    }
+  },[handleRegister])
+
+  
+
+ 
 
 
   return (
