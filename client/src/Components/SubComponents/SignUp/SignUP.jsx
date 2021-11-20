@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styles from "./sign.module.css";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
@@ -6,8 +6,12 @@ import Button from "@mui/material/Button";
 // import { FaApple } from "react-icons/fa";
 // import { FaRegCompass } from "react-icons/fa";
 import axios from "axios";
-import { display } from "@mui/system";
+
+
 import { useHistory } from "react-router-dom";
+
+import { useSelector, useDispatch } from "react-redux";
+import { setLoggedInUser, storeToken } from "../../../Redux/action";
 
 const useStyles = makeStyles((theme) => ({
   buton: {
@@ -72,8 +76,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function SignUp() {
-  const history = useHistory();
   const classes = useStyles();
+  const history = useHistory();
   const [error, setError] = useState(false);
   const [errorData, setErrorData] = useState("");
   const [input, setInput] = useState({
@@ -84,6 +88,15 @@ export default function SignUp() {
     location: "",
     userRoles: "",
   });
+  const loggedIn = useSelector(state => state.loggedIn);
+  const dispatch = useDispatch();
+  
+
+  useEffect(() => {
+    if (loggedIn) {
+      history.push("")                                // to be filled important
+    }
+  },[])
 
   const handlePayload = (e) => {
     let { name, value } = e.target;
@@ -91,42 +104,17 @@ export default function SignUp() {
   };
 
   const handleRegister = () => {
-    console.log(input);
-    setInput({
-      name: "",
-      email: "",
-      password: "",
-      username: "",
-      location: "",
-      userRoles: "",
-    });
-    axios
-      .post("http://localhost:2345/register", {
-        input,
-      })
-      .then((res) => {
-        setError(false);
-        console.log(res.data);
-        history.push("/login");
+    axios.post("http://localhost:3009/signup", input)
+      .then((data) => {
+        dispatch(storeToken(data.data));
+        dispatch(setLoggedInUser(data.data.user));
+        console.log("pushing to home")
       })
       .catch((err) => {
-        console.log(err);
-        setError(true);
-        setErrorData("User already exists");
-      });
-  };
-  const handleGoogleAuth = () => {
-    //  axios.get("http://localhost:2345/auth/google").then((res) => {
-    //         setError(false);
-    //         console.log(res.data);
-    //     }).catch((err) => {
-    //       console.log(err);
-    //       setError(true);
-    //       setErrorData("User already exists");
-    //     });
+        alert(err)
+    })
+  }
 
-    window.location.href = "http://localhost:2345/auth/google";
-  };
 
   return (
     <div className={styles.main_sign}>
@@ -184,19 +172,20 @@ export default function SignUp() {
               placeholder="Enter Location"
               onChange={handlePayload}
             />
-            <select style={{margin: "10px 0 10px 0"}}
-            className={classes.email}
-            >
-              <option>Select User Type</option>
-              <option>User</option>
-              <option>Admin</option>
-            </select>
+            <input
+              name="userRoles"
+              value={input.userRoles}
+              className={classes.email}
+              type="text"
+              placeholder="Enter userRoles"
+              onChange={handlePayload}
+            />
           </div>
         </form>
         <Button
           className={classes.buton}
           variant="contained"
-          onClick={() => handleRegister()}
+          onClick={handleRegister}
         >
           Sign up
         </Button>
