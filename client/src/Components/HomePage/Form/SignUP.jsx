@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 // import { FaRegCompass } from "react-icons/fa";
 import axios from "axios";
 import { display } from "@mui/system";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   buton: {
@@ -162,9 +162,14 @@ export default function SignUp() {
 
         <div style={{ textAlign: "center"}}>
           <div className={styles.sig_botm}>
-            <Button style={{backgroundColor:"green"}} className={classes.buton} variant="contained">
+            <Link to="/sharekro" style={{
+              textDecoration: "none",
+              width: "100%"
+            }}>
+            <Button style={{backgroundColor:"#00CF35"}} className={classes.buton} variant="contained">
                 Shareकरो
             </Button>
+            </Link>
           </div>
         </div>
       </div>
