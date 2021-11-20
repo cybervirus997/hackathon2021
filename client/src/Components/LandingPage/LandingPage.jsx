@@ -60,8 +60,10 @@ export const LandingPage = () => {
   }
 
   return (
+    
     <div>
       <div className={styles.container} id="a">
+
         <Navbar page={"login"} checker1={checker1} />
         <FlexBox>
           <DivStyle>

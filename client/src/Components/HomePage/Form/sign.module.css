@@ -1,0 +1,83 @@
+.main_sign {
+	width: 300px;
+	margin: auto;
+	background: inherit;
+}
+.upper {
+	width: 100%;
+}
+.divide {
+	display: flex;
+	flex-direction: row;
+	margin-top: 10px;
+}
+.divide > span {
+	color: white;
+	margin-left: 10px;
+	margin-right: 10px;
+	align-items: center;
+	margin-top: -2px;
+}
+.lin {
+	background-color: #fff;
+	height: 1px;
+	position: relative;
+	top: 8px;
+	width: 100%;
+}
+.sig_botm {
+	color: white;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	text-align: center;
+	align-items: center;
+	display: flex;
+}
+.sig_botm > span {
+	align-items: center;
+	margin-left: 10px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.ErrorBox {
+	margin-top: 24px !important;
+	margin-bottom: 16px !important;
+	width: 300px;
+	height: 70px;
+	box-shadow: inset 0px 0px 10px red;
+	margin: auto;
+	background-color: white;
+}
+.ErrorBox > :nth-child(1) {
+	display: flex;
+}
+
+.ErrorBox img {
+	margin: 18px 12px 0px 68px;
+}
+
+.ErrorBox h2 {
+	color: rgba(242, 33, 33, 0.7);
+	font-family: Amazon Ember Display;
+	font-style: Medium;
+	font-size: 16px;
+	letter-spacing: 2%;
+	/* margin: 21px 105px 0px 0px; */
+	margin-bottom: -4px !important;
+	padding-left: 45px;
+}
+
+.ErrorBox div {
+	color: #f55d5d;
+	font-style: Light;
+	font-size: 12px;
+	letter-spacing: 2%;
+	margin: 7px 26px 16px 27px;
+	text-align: center;
+}
+.errorBoxHide {
+	display: none;
+	border: 10px solid black;
+	background-color: #f55d5d;
+}
