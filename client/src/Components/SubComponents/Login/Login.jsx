@@ -87,6 +87,9 @@ export default function SignUp() {
       password: "",
   });
 
+  const [errorBtn,setErrorBtn]=useState(true)
+
+
     const handlePayload = (e) => {
         let { name, value } = e.target;
         setInput({ ...input, [name]: value});
@@ -99,9 +102,14 @@ export default function SignUp() {
    const handleLogin = () => {
     axios.post("http://localhost:3009/login", input)
       .then((data) => {
+        setErrorBtn(true)
         dispatch(storeToken(data.data));
         dispatch(setLoggedInUser(data.data.user));
         console.log("pushing to home")
+      })
+      .catch((err) => {
+        setErrorBtn(false)
+        alert("wrong Credentials")
       })
   }
 
@@ -139,7 +147,7 @@ export default function SignUp() {
             />
           </div>  
         </form>
-        <Button className={classes.buton} style={{ background: "rgb(0,207,53)", }} variant="contained" onClick={handleLogin} >   {/* onClick={ }*/}
+        <Button className={classes.buton} style={{ backgroundColor: errorBtn ?  "rgb(0,207,53)" : "red" }} variant="contained" onClick={handleLogin} >   {/* onClick={ }*/}
           Login 
         </Button>
 
