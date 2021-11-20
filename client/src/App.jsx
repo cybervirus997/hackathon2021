@@ -4,6 +4,7 @@ import Home from "./Components/HomePage/Home";
 
 function App() {
   return (
+
     <div style={{margin: "0px"}}>
        {/* <LandingPage/> */}
        <Home/>
