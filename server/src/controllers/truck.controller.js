@@ -16,9 +16,10 @@ router.get("", async (req, res) => {
 router.post("", async (req, res) => {
     try {
         const truck = await Truck.create({
-            name: req.body.name,
-            truckImage: req.body.truckImage,
-            capacity : req.body.capacity,
+            truckNumber: req.body.truckNumber,
+            truckName: req.body.truckName,
+            capacity: req.body.capacity,
+            occupied: req.body.occupied,
         });
         return res.status(200).json(truck);
     } catch (err) {
