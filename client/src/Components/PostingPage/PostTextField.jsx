@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-export default function TextField({checkerClose}) {
+export default function TextField({checkerClose,loader}) {
   const classes = useStyles();
   const history = useHistory();
   const [error, setError] = useState(false);
@@ -114,6 +114,7 @@ export default function TextField({checkerClose}) {
 
   const handleRegister = () => {
    
+
     let tId = seletedTruck.split("&")[1].trim();
 
     const rip={
@@ -124,17 +125,6 @@ export default function TextField({checkerClose}) {
     truckId: tId
     }
 
-    console.log(rip);
-
-    // fetch("http://localhost:3009/post", {
-    //   method: "POST",
-    //   body: JSON.stringify(rip),
-    //   headers: {
-    //     "content-type": "application/json"
-    //   }
-    // })
-    //   .then((data) => console.log(data))
-    // .catch((err) => console.log(err))
 
     axios.post("http://localhost:3009/post", rip)
       .then((data) => {
@@ -144,7 +134,8 @@ export default function TextField({checkerClose}) {
         console.log(err)
       })
 
-       checkerClose();
+    checkerClose();
+    loader();
   }
 
   return (
