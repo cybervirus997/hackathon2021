@@ -6,7 +6,7 @@ const Posts = require("../models/posts.model");
 
 router.get("", async (req, res) => {
     try {
-        const posts = await Posts.find({}).populate("userId").populate("comment").lean().exec();
+        const posts = await Posts.find({}).populate("userId").populate("comment").populate("truckId").lean().exec();
         return res.status(200).json(posts);
     } catch (error) {
         return res.status(400).send(error)
@@ -15,22 +15,24 @@ router.get("", async (req, res) => {
 
 router.post("",async (req, res) => {
     try {
-        let posts = await Posts.create({
+        console.log("18");
+        const posts = await Posts.create({
                 userId: req.body.userId,
                 title: req.body.title,
                 startPoint: req.body.startPoint,
-                endPoint : req.body.endPoint,
-                price: req.body.price,
-                image: req.body.image,
+                endPoint: req.body.endPoint,
                 truckId: req.body.truckId,
-                comment: req.body.comment,
             });
-
+            console.log("28");
 
         const updatedPosts = await User.findById(req.body.userId).lean().exec();
-        updatedPosts.tweets.push(posts._id);
-        const user = await User.findByIdAndUpdate(req.body.userId,updatedPosts).lean().exec();
+        console.log("31");
+        updatedPosts.posts.push(posts._id);
+        console.log("33");
+        const user = await User.findByIdAndUpdate(req.body.userId, updatedPosts).lean().exec();
+        console.log("35");
         return res.status(200).json(posts);
+        console.log("37");
         
     } catch (error) {
         return res.status(400).send(error)
