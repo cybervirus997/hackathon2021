@@ -1,0 +1,4 @@
+
+export const STORE_TOKEN = "STORE_TOKEN";
+export const DELETE_TOKEN = "DELETE_TOKEN";
+export const SET_LOGGEDIN_USER = "SET_LOGGEDIN_USER";
