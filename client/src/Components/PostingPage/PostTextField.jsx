@@ -5,12 +5,12 @@ import Button from "@mui/material/Button";
 // import { FcGoogle } from "react-icons/fc";
 // import { FaApple } from "react-icons/fa";
 // import { FaRegCompass } from "react-icons/fa";
-import axios from "axios";
+import axios, { Axios } from "axios";
 
 
 import { useHistory } from "react-router-dom";
 
-//import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setLoggedInUser, storeToken } from "../../Redux/action";
 
 const useStyles = makeStyles((theme) => ({
@@ -82,22 +82,30 @@ export default function TextField({checkerClose}) {
   const [errorData, setErrorData] = useState("");
 
   const [input, setInput] = useState({
-    name: "",
-    email: "",
-    password: "",
-    username: "",
-    location: "",
-    userRoles: "",
-  });
-  // const loggedIn = useSelector(state => state.loggedIn);
-  // const dispatch = useDispatch();
-  
+    title: "",
+    startPoint: "",
+    endPoint: "",
+    occupied: "",
+    capacity: "",
 
-  // useEffect(() => {
-  //   if (loggedIn) {
-  //     history.push("")                                // to be filled important
-  //   }
-  // },[])
+  });
+
+
+  const user = useSelector(state => state.loggedInUser);
+
+  console.log("user:", input.title);
+
+  const [seletedTruck,setSeletedTruck]=useState("")
+  const [truckData,setTruckData]=useState([])
+
+  useEffect(() => {
+    axios.get("http://localhost:3009/truck")
+      .then((data) => {
+        setTruckData(data.data)
+      })
+    
+  }, [])
+  
 
   const handlePayload = (e) => {
     let { name, value } = e.target;
@@ -105,18 +113,37 @@ export default function TextField({checkerClose}) {
   };
 
   const handleRegister = () => {
-    checkerClose();
-    console.log(input);
-    // axios.post("http://localhost:3009/signup", input)
-    //   .then((data) => {
-    //     // dispatch(storeToken(data.data));
-    //     // dispatch(setLoggedInUser(data.data.user));
-    //     console.log("pushing to home")
-        
-    //   })
-    //   .catch((err) => {
-    //     alert(err)
+   
+
+    let tId = seletedTruck.split("&")[1];
+
+    const rip={
+    userId: user._id,
+    title: input.title,
+    startPoint: input.startPoint,
+    endPoint: input.endPoint,
+    truckId: tId
+    }
+
+    // fetch("http://localhost:3009/post", {
+    //   method: "POST",
+    //   body: JSON.stringify(rip),
+    //   headers: {
+    //     "content-type": "application/json"
+    //   }
     // })
+    //   .then((data) => console.log(data))
+    // .catch((err) => console.log(err))
+
+    axios.post("http://localhost:3009/post", rip)
+      .then((data) => {
+      console.log(data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+       checkerClose();
   }
 
   return (
@@ -167,21 +194,19 @@ export default function TextField({checkerClose}) {
               placeholder="Occupied"
               onChange={handlePayload}
             />
-             <select 
-            className={classes.email}
-            style={{margin: "10px 0 10px 0",
-                    color: "#757575"
-            }}
-            >
+            <select className={classes.email} style={{  margin: "10px 0 10px 0", color: "#757575" }} onChange={(e) => setSeletedTruck(e.target.value)}>
               <option>Select Truck Type</option>
-              <option>EICHER 17FT (5 TON)</option>
+              {truckData.map((el) => 
+                <option > {el.truckName} & {el._id} </option>
+              )}
+              {/* <option>EICHER 17FT (5 TON)</option>
               <option>EICHER 17FT (5 TON)</option>
               <option>EICHER 19FT (7 TON)</option>
               <option>TATA TRUCK (10 TON)</option>
-              <option>32FT CONTAINER (7 TON)</option>
+              <option> Maruti 32FT CONTAINER (7 TON)</option>
               <option>32FT CONTAINER (14 TON)</option>
-              <option>32 / 40 FEET OPEN TRAILER</option>
-              <option>TAURUS (18 TON) N.A</option>
+              <option>Ford 32 / 40 FEET OPEN TRAILER</option>
+              <option>TAURUS (18 TON)</option> */}
             </select>
           </div>
         </form>
