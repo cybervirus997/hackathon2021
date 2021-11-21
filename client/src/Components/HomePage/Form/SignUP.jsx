@@ -130,19 +130,17 @@ export default function SignUp() {
 
   useEffect(() => {
 
-    axios.get(`https://geocode.search.hereapi.com/v1/geocode?q=${from}&apiKey=s-qLXbBx3veMxxKkxZwxbQCPNNa_8up-J3YCAjDVIsk`)
+  axios.get(`https://geocode.search.hereapi.com/v1/geocode?q=${from}&apiKey=s-qLXbBx3veMxxKkxZwxbQCPNNa_8up-J3YCAjDVIsk`)
     .then((data) => {
       setLoc1(data.data.items[0].position)
-    })
+  })
   
   axios.get(`https://geocode.search.hereapi.com/v1/geocode?q=${to}&apiKey=s-qLXbBx3veMxxKkxZwxbQCPNNa_8up-J3YCAjDVIsk`)
     .then((data) => {
       setLoc2(data.data.items[0].position)
     })
-
     console.log("loc1", loc1)
     console.log("loc2", loc2)
-    
   },[booool])
 
 

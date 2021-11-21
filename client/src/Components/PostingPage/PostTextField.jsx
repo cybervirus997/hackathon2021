@@ -115,7 +115,9 @@ export default function TextField({checkerClose}) {
   const handleRegister = () => {
    
 
-    let tId = seletedTruck.split("&")[1];
+    let tId = seletedTruck.split("&")[1].trim();
+
+    
 
     const rip={
     userId: user._id,
@@ -124,6 +126,8 @@ export default function TextField({checkerClose}) {
     endPoint: input.endPoint,
     truckId: tId
     }
+
+    console.log(rip);
 
     // fetch("http://localhost:3009/post", {
     //   method: "POST",
