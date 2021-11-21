@@ -114,10 +114,7 @@ export default function TextField({checkerClose}) {
 
   const handleRegister = () => {
    
-
     let tId = seletedTruck.split("&")[1].trim();
-
-    
 
     const rip={
     userId: user._id,
