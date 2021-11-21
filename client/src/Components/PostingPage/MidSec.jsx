@@ -66,6 +66,21 @@ function MidSec(){
         setOpen(false);
   }
   
+  const [refresh, setrefresh] = useState(true);
+
+  const handleRefresh = () => {
+    setrefresh(!refresh)
+  }
+
+  useEffect(() => {
+    axios.get("http://localhost:3009/post")
+      .then((data) => {
+        let xyz = (data.data).reverse();
+        setGetData(xyz);
+        console.log("posts:",data.data)
+      })
+  },[handleRefresh])
+
   useEffect(() => {
     axios.get("http://localhost:3009/truck")
       .then((data) => {
@@ -73,7 +88,8 @@ function MidSec(){
       })
     axios.get("http://localhost:3009/post")
       .then((data) => {
-        setGetData(data.data);
+        let xyz = (data.data).reverse();
+        setGetData(xyz);
         console.log("posts:",data.data)
       })
   },[])
@@ -241,7 +257,7 @@ function MidSec(){
             {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                 Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
             </Typography> */}
-            <TextField  checkerClose={checkerClose}/>
+                  <TextField checkerClose={checkerClose} loader={handleRefresh}/>
             </Box>
           </Modal>
 
