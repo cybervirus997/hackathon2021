@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -34,7 +35,6 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    // border: '2px solid #000',
     boxShadow: 24,
     p: 4,
   };
@@ -42,12 +42,25 @@ const style = {
 
 function MidSec(){
 
-    const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [getData,setGetData]=useState([]);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const checkerClose = () => {
         setOpen(false);
-    }
+  }
+  
+  useEffect(() => {
+    axios.get("http://localhost:3009/truck")
+      .then((data) => {
+        console.log(data)
+      })
+    axios.get("http://localhost:3009/post")
+      .then((data) => {
+        setGetData(data.data);
+        console.log("posts:",data.data)
+      })
+  },[])
 
     return (
         <div style={{
@@ -63,9 +76,13 @@ function MidSec(){
                 left: "150px",
                 backgroundColor: "white"
             }}>
-                {/* <Paper square sx={{ pb: '50px' }} >
+                
+          
+          {getData.map((el) => {
+            return <div>{el.title} {el.truckId.truckName}</div>
+          }) }
 
-                </Paper> */}
+
             </div>
             <div>
             <AppBar position="absolute" sx={{ top: 'auto', bottom: 0 }} style={{
