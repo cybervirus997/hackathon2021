@@ -236,7 +236,7 @@ export default function SignUp() {
           </div>
         </form>
 
-        <button onClick={handleapi}>Start tracking</button>
+        <button onClick={handleapi} style={{backgroundColor:"#334257" ,color:"white", border:"none" ,borderRadius:"4px"}} className={classes.buton}>Start tracking</button>
         
         <Button className={classes.buton} variant="contained"  onClick={handleSinglePerson}>
           Direct Booking
