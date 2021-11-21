@@ -4,6 +4,8 @@ import { LandingPage } from '../LandingPage/LandingPage';
 
 import Home  from '../HomePage/Home';
 import PostPage from '../PostingPage/Post';
+import Chat from '../chat/Chat';
+import Success from '../SuccessPage/Success';
 
 export const Routes = () => {
     return (
@@ -18,6 +20,14 @@ export const Routes = () => {
 
                 <Route path ="/sharekro">
                     <PostPage />
+
+                </Route>
+                <Route path ="/payment">
+                    <Success />
+
+                </Route>
+                <Route path ="/chat">
+                    <Chat/>
 
                 </Route>
             </Switch>

@@ -21,6 +21,7 @@ import Stack from '@mui/material/Stack';
 import ChatIcon from '@mui/icons-material/Chat';
 import Button from '@mui/material/Button';
 import PaymentIcon from '@mui/icons-material/Payment';
+import { Link } from "react-router-dom";
 //import SignupPage from '../HomePage/Form/SignUpPage';
 //import SignUP from '../SubComponents/SignUp/SignUP';
 //import Paper from '@mui/material/Paper';
@@ -102,7 +103,7 @@ function MidSec(){
                     //  border: "4px solid green",
                     position: "absolute",
                     width: "153%",
-                    height: "500px",
+                    height: "550px",
                     // padding: "2%",
                     top: "40px",
                     left: "150px",
@@ -207,16 +208,20 @@ function MidSec(){
                     </Box>
                   </CardContent>
                   <Box sx={{ display: 'flex', flexDirection: "column", alignItems: 'center', pl: 1, pb: 1 }}>
+                  <Link to="/chat">
                   <Button variant="contained" style={{
                     padding: "10% 0%",marginTop:"100%"
                   }}>
                     <ChatIcon />
                   </Button>
+                  </Link>
+                  <Link to="/payment">
                   <Button variant="contained" style={{
                     padding: "10% 0%",marginTop:"10px" ,backgroundColor:"green"
                   }}>
                     <PaymentIcon />
                   </Button>
+                  </Link>
                   </Box>
                 </Box>
               </Card>

@@ -317,15 +317,16 @@ export default function SignUp() {
            <Map lat1={loc1.lat} lon1={loc1.lng} lat2={loc2.lat} lon2={loc2.lng} />
           </div>
         </div>
-
+        <Link to="/payment" style={{textDecoration:"none"}}>
         <Button style={{ position: "absolute",backgroundColor:"rgb(0,207,53)", width: "170px", height: "50px", bottom: "7%", left: "24%", color:"#fff", fontWeight:"600" }}>
           <span style={{fontSize: "20px"}} >Payment</span>
         </Button>
-
+            </Link>
+            <Link to="/home" style={{textDecoration:"none"}}>
         <Button onClick={handleBackToHome} style={{ position: "absolute",backgroundColor:"#396EB0", width: "170px", height: "50px", bottom: "7%", left: "12%", color:"#fff", fontWeight:"600" }}>
           <span style={{fontSize: "20px"}} > Back </span>
         </Button>
-
+        </Link>
       </div> : ""}
 
     {/* overlay ends */}
