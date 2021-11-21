@@ -83,7 +83,7 @@ function MidSec(){
             width: "200%",
         }} >
             <div style={{
-                    // border: "1px solid white",
+                    //  border: "4px solid green",
                     position: "absolute",
                     width: "153%",
                     height: "500px",
@@ -99,26 +99,26 @@ function MidSec(){
                       <div key={el.id}>
 
               <Card sx={{ display: 'flex' }} style={{
-                 border: "1px solid blue"
+                 boxShadow: "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset"
               }}>
                     <Box sx={{ display: 'flex', flexDirection: 'row', margin: "auto" }}>
                     <CardMedia
                       component="img"
-                      sx={{ flex: '1 0 auto', width: 200 }}
+                      sx={{ flex: '1 0 auto', width: 200 ,paddingRight: "12px" }}
                       image={el.truckId.truckImage}
                       alt="Truck_Image"
                     />
                   <CardContent style={{
-                     border: "1px solid green",
+                      // border: "1px solid green",
                     width: "500px"
                   }}>
                     <Typography component="div" variant="h6" style={{ 
-                      marginLeft: "26%"
+                       width: "30%" ,marginLeft:"30%"
                     }}>
-                    <Stack direction="row" spacing={2}>
+                    <Stack direction="row" spacing={2}  >
                       <Item>{el.startPoint}</Item>
                       <span style={{
-                        color: "#00CF35"
+                        color: "#00CF35" ,width:"100%"
                       }}>to</span>
                       <Item>{el.endPoint}</Item>
                     </Stack>            
@@ -126,7 +126,8 @@ function MidSec(){
                     <Box sx={{ marginTop: "10%", width: "200%",display: "flex", flexDirection: "row", gap:"7%"}}>
                         
                       <div style = {{
-                        width: "auto",
+                        width: "200px",
+                        // border: "4px solid green"
                         // margin: "auto"
                       }}>
                           <Typography variant="subtitle1" color="text.secondary" component="div" style={{
@@ -191,12 +192,12 @@ function MidSec(){
                   </CardContent>
                   <Box sx={{ display: 'flex', flexDirection: "column", alignItems: 'center', pl: 1, pb: 1 }}>
                   <Button variant="contained" style={{
-                    padding: "10% 0%"
+                    padding: "10% 0%",marginTop:"100%"
                   }}>
                     <ChatIcon />
                   </Button>
                   <Button variant="contained" style={{
-                    padding: "10% 0%"
+                    padding: "10% 0%",marginTop:"10px" ,backgroundColor:"green"
                   }}>
                     <PaymentIcon />
                   </Button>
