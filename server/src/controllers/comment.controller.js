@@ -18,7 +18,6 @@ router.post("", async (req, res) => {
         const comment = await Comment.create({
             postsId: req.body.postsId,
             commentTitle: req.body.commentTitle,
-            commentPic: req.body.commentPic,
             userId: req.body.userId,
             userName: req.body.userName,
         })

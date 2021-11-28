@@ -151,6 +151,15 @@ export default function SignUp() {
           Login 
         </Button>
 
+         <Button className={classes.buton} style={{ backgroundColor: errorBtn ?  "#4285F4" : "red" }} variant="contained"  display="flex" flexFlow="row" > 
+          <div style={{padding: "4px",background:"#fff",width: "48px", borderRadius:"1px" }}>
+            <img src="https://developers.google.com/identity/images/g-logo.png" alt="" width="34px" />
+          </div>
+          <div style={{width:"80%"}}>
+            Sign in with Google
+          </div>
+        </Button>
+        
         <div className={styles.divide}>
           <div className={styles.lin}></div>
 

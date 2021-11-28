@@ -1,8 +1,8 @@
 import React from "react";
-import SignUp from "./SignUP";
+import SingleUserFormData from "./SingleUserFormData";
 import styles from "./part.module.css";
 
-export default function SignupPage() {
+export default function SingleUserHome() {
   return (
     <div className={styles.comp} id={styles.slide}>
       <div className={styles.comp_part}>
@@ -10,7 +10,7 @@ export default function SignupPage() {
       <div style={{fontWeight: "900", fontSize: "35px", color: "white"}}>
       Select Location
       </div>
-            <SignUp/>
+            <SingleUserFormData/>
         </div>
 
        

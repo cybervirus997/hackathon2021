@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ButtonAppBar from './ButtonAppBar';
 import { createGlobalStyle } from 'styled-components';
 import truck from './truck.png';
-import SignupPage from './Form/SignUpPage';
+import SingleUserHome from './SingleUserQuery/SingleUserHome';
 // import SignupPage from '../SubComponents/SignUp/SignUpPage';
 
 const GlobalStyle = createGlobalStyle`
@@ -74,7 +74,7 @@ function Home() {
                     </div>
                 </DivStyle>
                 <DivStyleOne>
-                    <SignupPage/>
+                    <SingleUserHome/>
                 </DivStyleOne>
             </FlexBox>
         </Container>

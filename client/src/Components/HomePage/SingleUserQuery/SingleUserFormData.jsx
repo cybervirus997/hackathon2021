@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-export default function SignUp() {
+export default function SingleUserFormData() {
 
   const [overlay,setOverlay] = useState(false);
   const history = useHistory();
@@ -287,8 +287,7 @@ export default function SignUp() {
               <div style={{ width: "100%", height: "100%",display: "flex",flexFlow:"row"}}>
 
                 <div style={{ height: "100%",marginLeft:"0%",marginTop:"0%",width:"50%"}}>
-                  <div><img src={truckData1[pointer].truckImage} alt="tru" width="90%" height="90%"/></div>
-                  
+                  <div><img src={truckData1[pointer].truckImage} alt="tru" width="90%" height="100%"/></div>
                 </div>
 
                 <div style={{ height: "100%",width:"55%", backgroundColor:"#67806B",color:"#fff" }}>

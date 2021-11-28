@@ -15,7 +15,6 @@ router.get("", async (req, res) => {
 
 router.post("",async (req, res) => {
     try {
-        console.log("18");
         const posts = await Posts.create({
                 userId: req.body.userId,
                 title: req.body.title,
@@ -23,16 +22,11 @@ router.post("",async (req, res) => {
                 endPoint: req.body.endPoint,
                 truckId: req.body.truckId,
             });
-            console.log("28");
 
         const updatedPosts = await User.findById(req.body.userId).lean().exec();
-        console.log("31");
         updatedPosts.posts.push(posts._id);
-        console.log("33");
         const user = await User.findByIdAndUpdate(req.body.userId, updatedPosts).lean().exec();
-        console.log("35");
         return res.status(200).json(posts);
-        console.log("37");
         
     } catch (error) {
         return res.status(400).send(error)

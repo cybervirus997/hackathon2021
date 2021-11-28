@@ -38,19 +38,6 @@ const DivStyle = styled.div`
   background-color: #688983;
 
 `;
-// const CorDiv = styled.div`
-//   position: absolute;
-//   width: 200px;
-//   height: 420px;
-//   top: 35px;
-//   left: 20px;
-//   // border: 1px solid red;
-// `;
-// const ImgDiv = styled.div`
-//   position: absolute;
-//   top: 130px;
-//   left: 255px;
-// `;
 const DivStyleOne = styled.div`
 
   width: 50%;
@@ -58,15 +45,6 @@ const DivStyleOne = styled.div`
   background-color: #161B22;
 
 `;
-
-// const Image = styled.img`
-// position: absolute;
-// top: 150px;
-// left: 115px;
-//   width: 70%;
-//   height: 50%;
-
-// `;
 function PostPage() {
     return (
         <>
