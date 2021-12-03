@@ -6,6 +6,7 @@ import { createGlobalStyle } from 'styled-components';
 import truck from './truck.png';
 import SingleUserHome from './SingleUserQuery/SingleUserHome';
 // import SignupPage from '../SubComponents/SignUp/SignUpPage';
+// import SignupPage from '../SubComponents/SignUp/SignUpPage';
 
 const GlobalStyle = createGlobalStyle`
   body {
