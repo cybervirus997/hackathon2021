@@ -70,19 +70,11 @@ function MidSec(){
  
 
   const handleRefresh = () => {
-    window.location.reload(false);
     setrefresh(!refresh)
   }
 
   const user = useSelector(state => state.loggedInUser);
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:3009/post")
-  //     .then((data) => {
-  //       let xyz = (data.data).reverse();
-  //       setGetData(xyz);
-  //     })
-  // },[handleRefresh])
 
   useEffect(() => {
     axios.get("http://localhost:3009/truck")
@@ -94,7 +86,7 @@ function MidSec(){
         let xyz = (data.data).reverse();
         setGetData(xyz);
       })
-  }, [])
+  }, [refresh])
   
 
   const handlePostREviews = () => {
@@ -107,8 +99,7 @@ function MidSec(){
     }
 
     axios.post("http://localhost:3009/comment", reviewData);
-
-    window.location.reload(false);
+    handleRefresh()
   }
 
   return getData.length === 0 ? <div style={{ position: 'absolute', width: '100vw', height: '100%', backgroundColor: "white" }}></div> :  (
@@ -170,18 +161,18 @@ function MidSec(){
                         </div>
 
                         <div style={{width:"500px" ,height:"200px",border:"1px solid black",top:"0",right:"0"}}>
-                                  <h2>Reviews</h2>
-                                  
+                                  <h2 style={{background:"rgb(69,73,109)", color:"white",textAlign:"center"}}>Reviews</h2>
+                                  <div style={{width:"100%", height:"60%",overflowY:"scroll"}}>
                                   {el.comment.map((ele) => {
-                                    return <div style={{width:"100%",overflowY:"scroll"}}>
-                                      {ele.userName}          <br />
+                                    return <div style={{width:"100%",paddingLeft:"10px"}}>
+                                  <span style={{fontSize:"18px",fontWeight:"600"}}>{ele.userName}</span>             <br />
                                       {ele.commentTitle}
                                     </div>
                                   })}
-
+                                </div>
                                   <div style={{ width: "100%",display: "flex",flexDirection: "row"}} >
                                     <input type="text" name="reviews" id="reviews" onChange={(e) => { setReviews(e.target.value); setPossst(el._id) }} style={{ width: "80%", border: "1px solid black" }} />
-                                    <button onClick={handlePostREviews}  style={{ width: "20%"}}>Add</button>
+                                    <button onClick={handlePostREviews}  style={{ width: "20%", background:"green"}}>Add</button>
                                   </div>
                                   
                                   
@@ -193,10 +184,10 @@ function MidSec(){
 
 
                   </CardContent>
-                  <Box sx={{ display: 'flex', flexDirection: "column", alignItems: 'center', pl: 1, pb: 1 }}>
+                  <Box sx={{ display: 'flex', flexDirection: "row", alignItems: 'left'}}>
                   <Link to="/chat">
                   <Button variant="contained" style={{
-                    padding: "10% 0%",marginTop:"100%"
+                    padding: "10% 0%",marginTop:"10px", marginRight:"10px"
                   }}>
                     <ChatIcon />
                   </Button>
@@ -219,8 +210,9 @@ function MidSec(){
             </div>
         <div>
           
-          <StyledFab style={{position: 'absolute'}} aria-label="add" onClick={handleOpen}>
-            <AddIcon />
+          <StyledFab style={{position: 'absolute',width: '50%',top:"88%", left:"75%",background: "linear-gradient(to right, #051937, #004d7a, #008793, #00bf72, #a8eb12)"}} aria-label="add" onClick={handleOpen}>
+            <p style={{position: 'absolute',fontSize:'18px',fontWeight:'bold',top:"25%"}}>Add your post</p>
+            
           </StyledFab>
 
         
